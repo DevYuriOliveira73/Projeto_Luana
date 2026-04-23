@@ -19,7 +19,7 @@ Isso pode gerar problemas como:
 
 ## Funcionalidades principais
 
-- [ ] Cadastrar material
+- [x] Cadastrar material
 - [ ] Cadastrar cliente
 - [ ] Cadastrar pedido
 - [ ] Informar tema da festa

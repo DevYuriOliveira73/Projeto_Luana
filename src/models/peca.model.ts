@@ -1,6 +1,6 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, InferSchemaType } from "mongoose";
 
-const categoriasPeca = [
+export const categoriasPeca = [
   "boleira",
   "vaso",
   "mesinha",
@@ -39,5 +39,7 @@ const pecaSchema = new Schema(
     timestamps: true,
   }
 );
+
+export type PecaType = InferSchemaType< typeof pecaSchema>;
 
 export const Peca = mongoose.model("Peca_decorativa", pecaSchema);

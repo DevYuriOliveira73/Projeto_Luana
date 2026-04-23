@@ -2,7 +2,6 @@ import connectDB from './config/database.js'
 import dotenv from "dotenv"
 import app from "./app.js"
 
-import {Peca} from './models/peca.model.js'
 
 dotenv.config({
   path: './.env'
