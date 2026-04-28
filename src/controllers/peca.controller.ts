@@ -27,8 +27,8 @@ const createPeca = async (req: Request, res: Response) => {
     console.log(`Peça created: ${new_peca.nome_peca} - ${new_peca.categoria}`)
 
     res.status(201).json({
-      message: "Peça created",
-      peca: { new_peca }
+      message: "Peça criada com sucesso.",
+      peca: new_peca 
     })
 
 
