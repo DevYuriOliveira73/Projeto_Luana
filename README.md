@@ -1,7 +1,11 @@
 # Sistema de aluguel de decoração de festas
 
 ## 1. Objetivo
-Criar um sistema simples para ajudar no controle dos pedidos de aluguel de decoração da loja, evitando erros com datas, clientes e pagamentos.
+Sistema para gerenciamento de aluguel de peças decorativas para festas de aniversário.
+
+O projeto foi criado para organizar as informações do negócio, permitindo cadastrar peças decorativas, clientes e pedidos de aluguel. A aplicação ajuda a acompanhar a disponibilidade das peças em determinados períodos, identificar quais itens estão com cada cliente e facilitar o controle geral dos aluguéis.
+
+Também tem como objetivo tornar a rotina mais simples, reduzindo controles manuais e centralizando as principais informações do negócio em um único sistema.
 
 ## 2. Contexto do negócio
 Hoje o controle pode acontecer por conversa no WhatsApp, anotações ou memória.
