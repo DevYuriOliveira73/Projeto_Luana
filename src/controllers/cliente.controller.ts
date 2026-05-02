@@ -42,7 +42,7 @@ const createCliente = async (req: Request, res: Response) => {
     })
 
   } catch (error) {
-  console.error("Erro ao criar cliente:", error);
+    console.error("Erro ao criar cliente:", error);
 
     return res.status(500).json({
       message: "Erro interno no servidor."
@@ -51,26 +51,95 @@ const createCliente = async (req: Request, res: Response) => {
 }
 
 const getClientes = async (req: Request, res: Response) => {
-  
+  try {
+    const clientes = await Cliente.find()
+
+    res.status(200).json({
+      ...clientes
+    })
+
+  } catch (error) {
+    console.error("Erro ao listar cliente:", error);
+
+    return res.status(500).json({
+      message: "Erro interno no servidor."
+    });
+  }
 }
 
 const getClienteById = async (req: Request, res: Response) => {
-  
+  try {
+    const { id } = req.params
+
+    const cliente = await Cliente.findById(id)
+
+    res.status(200).json({
+      cliente
+    })
+
+  } catch (error) {
+    console.error("Erro ao encontrar cliente:", error);
+
+    return res.status(500).json({
+      message: "Erro interno no servidor."
+    });
+  }
 }
 
 const updateCliente = async (req: Request, res: Response) => {
-  
+  try {
+    const { id } = req.params
+    const clienteData = req.body
+
+    const updatedCliente = await Cliente.findOneAndUpdate(
+      { _id: id},
+      clienteData,
+      { returnDocument :'after' }
+    )
+
+    return res.status(200).json({
+      message: "Cliente atualizado com sucesso",
+      cliente: updatedCliente
+    })
+
+  } catch (error) {
+    console.error("Erro ao atualizar cliente:", error);
+
+    return res.status(500).json({
+      message: "Erro interno no servidor."
+    });
+  }
 }
 
 const deleteCliente = async (req: Request, res: Response) => {
-  
+  try {
+    const {id} = req.params
+
+    const deleted = await Cliente.findByIdAndDelete(id)
+
+    if (!deleted) {
+      return res.status(404).json({ message: "Cliente not found" })
+    }
+
+    return res.status(200).json({
+      message: "Cliente successfully deleted",
+      deleted
+    })
+
+  } catch (error) {
+    console.error("Erro ao deletar cliente:", error);
+
+    return res.status(500).json({
+      message: "Erro interno no servidor."
+    });
+  }
 }
 
 
 export {
   createCliente,
-  // getClientes,
-  // getClienteById,
-  // updateCliente,
-  // deleteCliente
+  getClientes,
+  getClienteById,
+  updateCliente,
+  deleteCliente
 }
